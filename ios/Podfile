@@ -22,4 +22,9 @@ target 'SampleApp' do
     'CxxBridge',
     'DevSupport',
     ]
+    pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+    pod 'RNI18n', :path => '../node_modules/react-native-i18n'
+    pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+    pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
 end
