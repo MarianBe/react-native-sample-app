@@ -6,7 +6,16 @@ export default StyleSheet.create({
     flex: 1
   },
   DataItem: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    width: '100%',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    padding: 10
+  },
+  DataItemSticky: {
+    backgroundColor: 'grey'
+  },
+  DataItemText: {
+    textAlign: 'center'
   },
   Spacer: {
     marginBottom: 50

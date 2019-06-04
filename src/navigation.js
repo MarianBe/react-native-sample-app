@@ -14,6 +14,8 @@ import { Variables } from './themes'
 // Main Application
 import Home from './components/home/home'
 import AnimationShowcase from './components/animationShowcase/animationShowcase'
+import APIShowcase from './components/apiShowcase/apiShowcase'
+import FlatlistShowcase from './components/flatlistShowcase/flatlistShowcase'
 /* 
 const Auth = createStackNavigator(
   {
@@ -35,7 +37,9 @@ const Auth = createStackNavigator(
 const TabNav = createBottomTabNavigator(
   {
     Home: { screen: Home },
-    AnimationShowcase
+    FlatlistShowcase,
+    AnimationShowcase,
+    APIShowcase
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({

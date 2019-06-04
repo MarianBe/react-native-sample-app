@@ -1,45 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Dimensions,
-  Animated,
-  View,
-  StatusBar,
-  BackHandler,
-  ToastAndroid,
-  InteractionManager,
-  Text,
-  SafeAreaView,
-  Image
-} from 'react-native'
-import I18n from 'react-native-i18n'
-import { NavigationEvents } from 'react-navigation'
-import _ from 'lodash'
-import SplashScreen from 'react-native-splash-screen'
+import { Animated, View, Text, SafeAreaView } from 'react-native'
 import Styles from './styles'
 let AnimatedScrollViewValue = new Animated.Value(0)
-const window = Dimensions.get('window')
-/* let dataArray = []
-for (let i = 0; i < 100; i++) {
-  dataArray.push(i)
-} */
 class Animation extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {}
-    this.scaleDown = AnimatedScrollViewValue.interpolate({
+    this.imageScale = AnimatedScrollViewValue.interpolate({
       inputRange: [0, this.props.imageHeight * 0.8],
-      outputRange: [1, 0.7],
-      extrapolate: 'clamp'
+      outputRange: [1, 1.3]
     })
     this.titleTranslation = AnimatedScrollViewValue.interpolate({
       inputRange: [0, this.props.imageHeight * 0.8],
-      outputRange: [0, window.width],
+      outputRange: [0, -this.props.imageHeight * 0.4],
       extrapolate: 'clamp'
     })
-    this.stayTranslation = AnimatedScrollViewValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 1]
+    this.titleScale = AnimatedScrollViewValue.interpolate({
+      inputRange: [0, this.props.imageHeight * 0.8],
+      outputRange: [1, 0]
     })
     this.fadeOut = AnimatedScrollViewValue.interpolate({
       inputRange: [0, this.props.imageHeight * 0.8],
@@ -80,7 +59,7 @@ class Animation extends React.PureComponent {
               style={[
                 Styles.Title, {
                   transform: [
-                    { translateX: this.titleTranslation }, { translateY: this.stayTranslation }
+                    { translateY: this.titleTranslation }, { scale: this.titleScale }
                   ]
                 }
               ]}>
@@ -93,17 +72,24 @@ class Animation extends React.PureComponent {
               style={[
                 Styles.Image, {
                   height: this.props.imageHeight,
-                  transform: [{ scale: this.scaleDown }],
+                  transform: [{ scale: this.imageScale }],
                   opacity: this.fadeOut
                 }
               ]}
             />
           </Animated.View>
-          {this.props.data.map(item => (
-            <View key={item} style={[Styles.DataItem]}>
-              <Text>{item}</Text>
-            </View>
-          ))}
+          {this.props.data.map((item, index) => {
+            return (
+              <View
+                key={item}
+                style={[
+                  Styles.DataItem, this.props.stickyHeaderIndices.includes(index + 1) &&
+                    Styles.DataItemSticky
+                ]}>
+                <Text style={[Styles.DataItemText]}>{item}</Text>
+              </View>
+            )
+          })}
         </Animated.ScrollView>
       </SafeAreaView>
     )
@@ -112,6 +98,10 @@ class Animation extends React.PureComponent {
 
 Animation.propTypes = {
   navigation: PropTypes.object,
-  data: PropTypes.array
+  data: PropTypes.array,
+  title: PropTypes.string,
+  imageHeight: PropTypes.number,
+  stickyHeaderIndices: PropTypes.array,
+  imageURL: PropTypes.string
 }
 export default Animation

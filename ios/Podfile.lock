@@ -8,6 +8,9 @@ PODS:
   - glog (0.3.5)
   - React (0.59.8):
     - React/Core (= 0.59.8)
+  - react-native-fast-image (6.0.3):
+    - React
+    - SDWebImage (~> 5.0)
   - react-native-splash-screen (3.2.0):
     - React
   - React/Core (0.59.8):
@@ -65,16 +68,22 @@ PODS:
     - React/RCTBlob
   - RNCAsyncStorage (1.4.2):
     - React
-  - RNGestureHandler (1.2.2):
+  - RNGestureHandler (1.3.0):
     - React
   - RNI18n (2.0.15):
     - React
+  - RNVectorIcons (6.4.2):
+    - React
+  - SDWebImage (5.0.4):
+    - SDWebImage/Core (= 5.0.4)
+  - SDWebImage/Core (5.0.4)
   - yoga (0.59.8.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - react-native-fast-image (from `../node_modules/react-native-fast-image`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -92,11 +101,13 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNI18n (from `../node_modules/react-native-i18n`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
+    - SDWebImage
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -107,6 +118,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
+  react-native-fast-image:
+    :path: "../node_modules/react-native-fast-image"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
   RNCAsyncStorage:
@@ -115,6 +128,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNI18n:
     :path: "../node_modules/react-native-i18n"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -124,12 +139,15 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
+  react-native-fast-image: 3390cc968d598f0c6b5c710df138f4b653a87231
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   RNCAsyncStorage: 0d2b0cf659d2def90d8ed7de76f502d335268156
-  RNGestureHandler: 0e0813f9370d00efc5dd7a7f19f579260d0244c2
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
+  RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
+  SDWebImage: c739016e4bdf0a4a1f9a04b5e0385395ad63a282
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: c326017e105810899eed2069ead3b211c9f319a2
+PODFILE CHECKSUM: 15f2e3339e272179111ec1a81d023ab61c17e38f
 
 COCOAPODS: 1.7.0.beta.3
