@@ -13,7 +13,8 @@ export default StyleSheet.create({
     width: '100%',
     padding: 5,
     marginBottom: 10,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   TextInput: {
     flex: 1,
@@ -27,7 +28,6 @@ export default StyleSheet.create({
   },
   Item: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    width: '100%',
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center'

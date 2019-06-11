@@ -14,6 +14,7 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
+  RefreshControl,
   Switch
 } from 'react-native'
 import Parallax from '../parallax/parallax'
@@ -33,7 +34,9 @@ class FlatlistShowcase extends React.PureComponent {
     this.state = {
       scrollToValue: null,
       scrollToIndex: null,
-      inverted: false
+      inverted: false,
+      horizontal: false,
+      refreshing: false
     }
   }
 
@@ -84,6 +87,11 @@ class FlatlistShowcase extends React.PureComponent {
               value={this.state.inverted}
               onValueChange={value => this.setState({ inverted: value })}
             />
+            <Text>Horizontal?</Text>
+            <Switch
+              value={this.state.horizontal}
+              onValueChange={value => this.setState({ horizontal: value })}
+            />
           </View>
         </View>
         <FlatList
@@ -92,6 +100,13 @@ class FlatlistShowcase extends React.PureComponent {
             this.flatlist = flatlist
           }}
           inverted={this.state.inverted}
+          horizontal={this.state.horizontal}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this._onRefresh}
+            />
+          }
           renderItem={({ item }) => (
             <View style={[Styles.Item]}>
               <Text>{item}</Text>
@@ -112,6 +127,12 @@ class FlatlistShowcase extends React.PureComponent {
       index: parseInt(this.state.scrollToIndex),
       animated: true
     })
+  }
+  _onRefresh = () => {
+    this.setState({ refreshing: true })
+    setTimeout(() => {
+      this.setState({ refreshing: false })
+    }, 1000)
   }
 }
 

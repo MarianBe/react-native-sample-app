@@ -9,6 +9,7 @@ import {
   ToastAndroid,
   InteractionManager,
   Text,
+  UIManager,
   SafeAreaView
 } from 'react-native'
 import I18n from 'react-native-i18n'
@@ -25,6 +26,9 @@ class Home extends React.PureComponent {
 
   componentDidMount() {
     SplashScreen.hide()
+
+    UIManager.setLayoutAnimationEnabledExperimental &&
+      UIManager.setLayoutAnimationEnabledExperimental(true)
   }
 
   componentWillUnmount() {}
@@ -33,8 +37,8 @@ class Home extends React.PureComponent {
     return (
       <SafeAreaView style={[Styles.Root]}>
         <Text style={[Styles.Title]}>
-          Das ist unser Homescreen. Er befindet sich in einem TabNavigator.
-          Testen Sie doch unten die einzelnen Tabs aus.
+          Das ist unser Homescreen. Er befindet sich in einem Drawer. Swipen Sie
+          doch mal von Links um die einzelnen Tabs zu entdecken.
         </Text>
       </SafeAreaView>
     )

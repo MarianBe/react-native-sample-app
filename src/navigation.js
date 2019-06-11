@@ -3,19 +3,41 @@ import {
   createStackNavigator,
   createBottomTabNavigator,
   createSwitchNavigator,
-  createAppContainer
+  createAppContainer,
+  createDrawerNavigator
 } from 'react-navigation'
 import { Animated, Easing } from 'react-native'
 
 import { Variables } from './themes'
-
+import Icon from 'react-native-vector-icons/Ionicons'
 /* Screens */
 
 // Main Application
-import Home from './components/home/home'
-import AnimationShowcase from './components/animationShowcase/animationShowcase'
-import APIShowcase from './components/apiShowcase/apiShowcase'
-import FlatlistShowcase from './components/flatlistShowcase/flatlistShowcase'
+import HomeScreen from './components/home/home'
+import FlexScreen from './components/flex/flex'
+import Animation from './components/animationShowcase/animationShowcase'
+import API from './components/apiShowcase/apiShowcase'
+import Flatlist from './components/flatlistShowcase/flatlistShowcase'
+import Maps from './components/mapsShowcase/mapsShowcase'
+
+const commonHeaderConfig = {
+  headerMode: 'float',
+  headerLayoutPreset: 'center'
+}
+const headerNavigationOptions = ({ navigation }) => {
+  return {
+    title: navigation.state.routeName,
+    headerLeft: (
+      <Icon
+        name="ios-menu"
+        size={30}
+        style={{ marginStart: 10 }}
+        backgroundColor="#000000"
+        onPress={() => navigation.openDrawer()}
+      />
+    )
+  }
+}
 /* 
 const Auth = createStackNavigator(
   {
@@ -34,12 +56,68 @@ const Auth = createStackNavigator(
     // transitionConfig: getSlideFromRightTransition
   }
 ) */
-const TabNav = createBottomTabNavigator(
+const Home = createStackNavigator(
   {
-    Home: { screen: Home },
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
+const Flex = createStackNavigator(
+  {
+    'Flex und Style': {
+      screen: FlexScreen,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
+const FlatlistShowcase = createStackNavigator(
+  {
+    FlatlistShowcase: {
+      screen: Flatlist,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
+const AnimationShowcase = createStackNavigator(
+  {
+    AnimationShowcase: {
+      screen: Animation,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
+const APIShowcase = createStackNavigator(
+  {
+    APIShowcase: {
+      screen: API,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
+const MapsShowcase = createStackNavigator(
+  {
+    MapsShowcase: {
+      screen: Maps,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
+const Drawer = createDrawerNavigator(
+  {
+    Home,
+    'Flex und Style': { screen: Flex },
     FlatlistShowcase,
     AnimationShowcase,
-    APIShowcase
+    APIShowcase,
+    MapsShowcase
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -111,12 +189,12 @@ export const Navigator = createSwitchNavigator(
     Stack: { screen: ParentStack },
     NoInternet: { screen: NoInternet },
     UpdateNow: { screen: UpdateNow } */
-    TabNav
+    Drawer
   },
   {
     cardStyle: { backgroundColor: 'black' },
     index: 0,
-    initialRouteName: 'TabNav'
+    initialRouteName: 'Drawer'
   }
 )
 const App = createAppContainer(Navigator)

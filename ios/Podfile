@@ -2,7 +2,7 @@ platform :ios, '11.0'
 project './SampleApp.xcodeproj'
 target 'SampleApp' do
     rn_path = '../node_modules/react-native'
-    
+    rn_maps_path = '../node_modules/react-native-maps'
     pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
     pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
     pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
@@ -30,4 +30,21 @@ target 'SampleApp' do
 
     pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+    pod 'react-native-maps', path: rn_maps_path
+    pod 'react-native-google-maps', path: rn_maps_path  # Uncomment this line if you want to support GoogleMaps on iOS
+    pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
+    pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
+
+    post_install do |installer|
+      installer.pods_project.targets.each do |target|
+        if target.name == 'react-native-google-maps'
+          target.build_configurations.each do |config|
+            config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+          end
+        end
+        if target.name == "React"
+          target.remove_from_project
+        end
+      end
+    end
 end
