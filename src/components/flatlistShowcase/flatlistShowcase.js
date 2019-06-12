@@ -53,7 +53,7 @@ class FlatlistShowcase extends React.PureComponent {
           <View style={[Styles.ConfigItem]}>
             <TextInput
               value={this.state.scrollToValue}
-              placeholder="Scrolle zu Wert"
+              placeholder="Scrolle zu Koordinate"
               onChangeText={value => this.setState({ scrollToValue: value })}
               style={[Styles.TextInput]}
             />

@@ -73,7 +73,10 @@ class MapsShowcase extends React.PureComponent {
               latitude: 48.83777,
               longitude: 10.09
             },
-            zoom: 10
+            zoom: 10,
+            pitch: 0,
+            heading: 0,
+            altitude: 100
           }}
           showsUserLocation
           followsUserLocation
@@ -82,8 +85,9 @@ class MapsShowcase extends React.PureComponent {
           onUserLocationChange={event =>
             this.onUserLocationChange(event.nativeEvent.coordinate)
           }>
-          {marker.map(marker => (
+          {marker.map((marker, index) => (
             <Marker
+              key={index}
               coordinate={marker.coordinate}
               pinColor={marker.pinColor}
               draggable

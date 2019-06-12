@@ -8,6 +8,7 @@ import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
@@ -25,13 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new MapsPackage(),
-            new AsyncStoragePackage(),
-            new SplashScreenReactPackage(),
-            new RNGestureHandlerPackage()
-      );
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new MapsPackage(), new AsyncStoragePackage(),
+          new SplashScreenReactPackage(), new RNGestureHandlerPackage(), new RNI18nPackage());
     }
 
     @Override

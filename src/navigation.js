@@ -76,7 +76,7 @@ const Flex = createStackNavigator(
 )
 const FlatlistShowcase = createStackNavigator(
   {
-    FlatlistShowcase: {
+    'Flatlist Demo': {
       screen: Flatlist,
       navigationOptions: headerNavigationOptions
     }
@@ -85,7 +85,7 @@ const FlatlistShowcase = createStackNavigator(
 )
 const AnimationShowcase = createStackNavigator(
   {
-    AnimationShowcase: {
+    'Animationen Demo': {
       screen: Animation,
       navigationOptions: headerNavigationOptions
     }
@@ -94,7 +94,7 @@ const AnimationShowcase = createStackNavigator(
 )
 const APIShowcase = createStackNavigator(
   {
-    APIShowcase: {
+    'API-Aufruf Demo': {
       screen: API,
       navigationOptions: headerNavigationOptions
     }
@@ -103,7 +103,7 @@ const APIShowcase = createStackNavigator(
 )
 const MapsShowcase = createStackNavigator(
   {
-    MapsShowcase: {
+    'Google Maps Demo': {
       screen: Maps,
       navigationOptions: headerNavigationOptions
     }
@@ -114,10 +114,10 @@ const Drawer = createDrawerNavigator(
   {
     Home,
     'Flex und Style': { screen: Flex },
-    FlatlistShowcase,
-    AnimationShowcase,
-    APIShowcase,
-    MapsShowcase
+    'Flatlist Demo': { screen: FlatlistShowcase },
+    'Animationen Demo': { screen: AnimationShowcase },
+    'API-Aufruf Demo': { screen: APIShowcase },
+    'Google Maps Demo': { screen: MapsShowcase }
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
