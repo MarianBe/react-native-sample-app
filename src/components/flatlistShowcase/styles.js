@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   TextInput: {
     flex: 1,
-    height: 30,
+    height: 40,
     borderWidth: StyleSheet.hairlineWidth,
     paddingLeft: 5
   },

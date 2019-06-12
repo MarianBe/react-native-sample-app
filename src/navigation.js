@@ -6,7 +6,7 @@ import {
   createAppContainer,
   createDrawerNavigator
 } from 'react-navigation'
-import { Animated, Easing } from 'react-native'
+import { Animated, Easing, Platform } from 'react-native'
 
 import { Variables } from './themes'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -35,7 +35,13 @@ const headerNavigationOptions = ({ navigation }) => {
         backgroundColor="#000000"
         onPress={() => navigation.openDrawer()}
       />
-    )
+    ),
+    headerTitleStyle: {
+      ...Platform.select({
+        ios: { fontFamily: 'Arial' },
+        android: { fontFamily: 'Roboto' }
+      })
+    }
   }
 }
 /* 
@@ -67,7 +73,7 @@ const Home = createStackNavigator(
 )
 const Flex = createStackNavigator(
   {
-    'Flex und Style': {
+    'Flex und Style ': {
       screen: FlexScreen,
       navigationOptions: headerNavigationOptions
     }
@@ -76,7 +82,7 @@ const Flex = createStackNavigator(
 )
 const FlatlistShowcase = createStackNavigator(
   {
-    'Flatlist Demo': {
+    'Flatlist Demo ': {
       screen: Flatlist,
       navigationOptions: headerNavigationOptions
     }
@@ -85,7 +91,7 @@ const FlatlistShowcase = createStackNavigator(
 )
 const AnimationShowcase = createStackNavigator(
   {
-    'Animationen Demo': {
+    'Animationen Demo ': {
       screen: Animation,
       navigationOptions: headerNavigationOptions
     }
@@ -94,7 +100,7 @@ const AnimationShowcase = createStackNavigator(
 )
 const APIShowcase = createStackNavigator(
   {
-    'API-Aufruf Demo': {
+    'API-Aufruf Demo ': {
       screen: API,
       navigationOptions: headerNavigationOptions
     }
@@ -103,7 +109,7 @@ const APIShowcase = createStackNavigator(
 )
 const MapsShowcase = createStackNavigator(
   {
-    'Google Maps Demo': {
+    'Google Maps Demo ': {
       screen: Maps,
       navigationOptions: headerNavigationOptions
     }
@@ -163,15 +169,13 @@ const Drawer = createDrawerNavigator(
     animationEnabled: true,
     lazy: true,
     backBehavior: 'initialRoute',
-
-    tabBarOptions: {
-      showIcon: true,
-      showLabel: true,
-      style: {
-        backgroundColor: 'white'
-      },
-      activeTintColor: Variables.brandPrimary,
-      inactiveTintColor: 'gray'
+    contentOptions: {
+      labelStyle: {
+        ...Platform.select({
+          ios: { fontFamily: 'Arial' },
+          android: { fontFamily: 'Roboto' }
+        })
+      }
     }
   }
 )

@@ -48,11 +48,13 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     padding: 10,
-    height: 40,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    height: 50,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    alignItems: 'center'
   },
   ConfigEnablerText: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    flex: 1
   },
   ResetButton: {
     borderRadius: 5,
