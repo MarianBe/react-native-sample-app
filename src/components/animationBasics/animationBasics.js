@@ -1,13 +1,13 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import {
   Animated,
-  View,
-  Text,
-  SafeAreaView,
-  PanResponder,
   Dimensions,
-  Easing
+  Easing,
+  PanResponder,
+  SafeAreaView,
+  Text,
+  View
 } from 'react-native'
 import Styles from './styles'
 const window = Dimensions.get('window')

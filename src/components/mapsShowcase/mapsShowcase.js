@@ -1,30 +1,9 @@
 /* eslint-disable react/jsx-key */
-import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Dimensions,
-  Animated,
-  View,
-  StatusBar,
-  BackHandler,
-  ToastAndroid,
-  InteractionManager,
-  UIManager,
-  LayoutAnimation,
-  Text,
-  SafeAreaView,
-  ActivityIndicator,
-  TouchableOpacity,
-  Alert
-} from 'react-native'
-import FastImage from 'react-native-fast-image'
-import Parallax from '../parallax/parallax'
-import I18n from 'react-native-i18n'
-import { NavigationEvents } from 'react-navigation'
-import _ from 'lodash'
-import SplashScreen from 'react-native-splash-screen'
+import React from 'react'
+import { Alert, Text, View } from 'react-native'
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import Styles from './styles'
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps'
 
 const marker = [
   {

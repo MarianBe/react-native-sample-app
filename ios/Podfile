@@ -35,6 +35,10 @@ target 'SampleApp' do
     pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
     pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
 
+    pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+    pod 'react-native-orientation-locker', :path => '../node_modules/react-native-orientation-locker'
+
     post_install do |installer|
       installer.pods_project.targets.each do |target|
         if target.name == 'react-native-google-maps'

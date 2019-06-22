@@ -19,6 +19,7 @@ import Animation from './components/animationShowcase/animationShowcase'
 import API from './components/apiShowcase/apiShowcase'
 import Flatlist from './components/flatlistShowcase/flatlistShowcase'
 import Maps from './components/mapsShowcase/mapsShowcase'
+import Video from './components/videoShowcase/videoShowcase'
 
 const commonHeaderConfig = {
   headerMode: 'float',
@@ -116,6 +117,15 @@ const MapsShowcase = createStackNavigator(
   },
   { ...commonHeaderConfig }
 )
+const VideoShowcase = createStackNavigator(
+  {
+    'Videoplayer Demo ': {
+      screen: Video,
+      navigationOptions: headerNavigationOptions
+    }
+  },
+  { ...commonHeaderConfig }
+)
 const Drawer = createDrawerNavigator(
   {
     Home,
@@ -123,51 +133,12 @@ const Drawer = createDrawerNavigator(
     'Flatlist Demo': { screen: FlatlistShowcase },
     'Animationen Demo': { screen: AnimationShowcase },
     'API-Aufruf Demo': { screen: APIShowcase },
-    'Google Maps Demo': { screen: MapsShowcase }
+    'Google Maps Demo': { screen: MapsShowcase },
+    'Videoplayer Demo': { screen: VideoShowcase }
   },
   {
-    defaultNavigationOptions: ({ navigation }) => ({
-      /* tabBarIcon: ({ focused, horizontal, tintColor }) => {
-        // eslint-disable-line
-        const { routeName } = navigation.state
-        if (routeName === 'Home') {
-          return (
-            <CustomIcon
-              name={'home' + (focused ? '_filled' : '_outline')}
-              style={{ color: tintColor, fontSize: 25 }}
-            />
-          )
-        }
-        if (routeName === 'Discover') {
-          return (
-            <CustomIcon
-              name={'search' + (focused ? '_filled' : '_outline')}
-              style={{ color: tintColor, fontSize: 25 }}
-            />
-          )
-        }
-        if (routeName === 'MyMasters') {
-          return (
-            <CustomIcon
-              name={'mymasters' + (focused ? '_filled' : '_outline')}
-              style={{ color: tintColor, fontSize: 25 }}
-            />
-          )
-        }
-        if (routeName === 'Profile') {
-          return (
-            <CustomIcon
-              name={'profile' + (focused ? '_filled' : '_outline')}
-              style={{ color: tintColor, fontSize: 25 }}
-            />
-          )
-        }
-      } */
-    }),
-    tabBarPosition: 'bottom',
     swipeEnabled: false,
     animationEnabled: true,
-    lazy: true,
     backBehavior: 'initialRoute',
     contentOptions: {
       labelStyle: {
@@ -179,12 +150,6 @@ const Drawer = createDrawerNavigator(
     }
   }
 )
-/* const fluidTransitionConfig = {
-  duration: 300,
-  easing: Easing.quad,
-  timing: Animated.timing,
-  useNativeDriver: true
-} */
 
 export const Navigator = createSwitchNavigator(
   {

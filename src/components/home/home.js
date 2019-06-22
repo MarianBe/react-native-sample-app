@@ -1,20 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Dimensions,
-  Animated,
-  View,
-  StatusBar,
-  BackHandler,
-  ToastAndroid,
-  InteractionManager,
-  Text,
-  UIManager,
-  SafeAreaView
-} from 'react-native'
-import I18n from 'react-native-i18n'
-import { NavigationEvents } from 'react-navigation'
-import _ from 'lodash'
+import React from 'react'
+import { SafeAreaView, Text, UIManager } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 import Styles from './styles'
 

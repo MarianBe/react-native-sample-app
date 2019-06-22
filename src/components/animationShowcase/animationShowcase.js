@@ -1,23 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  Dimensions,
-  Animated,
-  View,
-  StatusBar,
-  BackHandler,
-  TouchableOpacity,
-  ToastAndroid,
-  InteractionManager,
-  Text,
-  SafeAreaView
-} from 'react-native'
-import Parallax from '../parallax/parallax'
-import Basics from '../animationBasics/animationBasics'
-import I18n from 'react-native-i18n'
-import { NavigationEvents } from 'react-navigation'
-import _ from 'lodash'
+import React from 'react'
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
+import Basics from '../animationBasics/animationBasics'
+import Parallax from '../parallax/parallax'
 import Styles from './styles'
 let dataArray = []
 for (let i = 0; i < 100; i++) {

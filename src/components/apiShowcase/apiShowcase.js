@@ -1,27 +1,16 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import {
-  Dimensions,
-  Animated,
-  View,
-  StatusBar,
-  BackHandler,
-  ToastAndroid,
-  InteractionManager,
-  UIManager,
+  ActivityIndicator,
   LayoutAnimation,
-  Text,
   SafeAreaView,
-  ActivityIndicator
+  Text,
+  UIManager,
+  View
 } from 'react-native'
 import FastImage from 'react-native-fast-image'
-import Parallax from '../parallax/parallax'
-import I18n from 'react-native-i18n'
-import { NavigationEvents } from 'react-navigation'
-import _ from 'lodash'
-import SplashScreen from 'react-native-splash-screen'
-import Styles from './styles'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler'
+import Styles from './styles'
 let dataArray = []
 for (let i = 0; i < 100; i++) {
   dataArray.push(i)

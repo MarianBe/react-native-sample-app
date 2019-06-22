@@ -1,6 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { Animated, View, Text, SafeAreaView } from 'react-native'
+import React from 'react'
+import { Animated, SafeAreaView, Text, View } from 'react-native'
 import Styles from './styles'
 let AnimatedScrollViewValue = new Animated.Value(0)
 class Animation extends React.PureComponent {

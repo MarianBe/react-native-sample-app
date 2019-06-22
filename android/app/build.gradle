@@ -151,6 +151,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-orientation-locker')
+    implementation project(':react-native-video')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-fast-image')
     implementation project(':react-native-maps')
