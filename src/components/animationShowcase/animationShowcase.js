@@ -3,7 +3,7 @@ import React from 'react'
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 import Basics from '../animationBasics/animationBasics'
-import Parallax from '../parallax/parallax'
+import { Parallax } from '../elements'
 import Styles from './styles'
 let dataArray = []
 for (let i = 0; i < 100; i++) {
