@@ -1,0 +1,18 @@
+{
+  "prettier.eslintIntegration": true,
+  "editor.formatOnSave": true,
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  "editor.codeActionsOnSave": {
+    //"source.organizeImports": true
+  },
+  "editor.renderWhitespace": "all",
+  "emmet.extensionsPath": "emmet",
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "html",
+    "javascriptreact": "html"
+  },
+  "emmet.showSuggestionsAsSnippets": true
+}
