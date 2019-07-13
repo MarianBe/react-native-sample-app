@@ -38,10 +38,19 @@ class VideoShowcase extends React.PureComponent {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    if (Platform.OS === 'android') Orientation.unlockAllOrientations()
+    Orientation.addOrientationListener(this._onOrientationDidChange)
+  }
 
   componentWillUnmount() {
+    this.lockOrientationOnExit()
+    Orientation.removeOrientationListener(this._onOrientationDidChange)
+  }
+
+  lockOrientationOnExit() {
     Orientation.lockToPortrait()
+    this.setState({ paused: true })
   }
 
   render() {
@@ -50,7 +59,7 @@ class VideoShowcase extends React.PureComponent {
         <View style={[Styles.Root]}>
           <NavigationEvents
             onWillFocus={() => this.setState({ paused: false })}
-            onWillBlur={() => this.setState({ paused: true })}
+            onWillBlur={() => this.lockOrientationOnExit()}
           />
           <View
             style={[
@@ -87,17 +96,28 @@ class VideoShowcase extends React.PureComponent {
               <ActivityIndicator size="large" style={[Styles.Loader]} />
             )}
           </View>
-          <View style={[Styles.DescriptionContainer]}>
-            <Text style={[Styles.Description]}>
-              Hier könnte die Beschreibung des Video stehen. Aute Lorem dolor
-              labore labore commodo tempor irure eu id voluptate eu enim. Amet
-              ut do amet voluptate pariatur eu laborum dolor nisi eiusmod
-              nostrud mollit. Nisi laboris sunt duis commodo.
-            </Text>
-          </View>
+          {!this.state.fullscreen && (
+            <View style={[Styles.DescriptionContainer]}>
+              <Text style={[Styles.Description]}>
+                Hier könnte die Beschreibung des Video stehen. Aute Lorem dolor
+                labore labore commodo tempor irure eu id voluptate eu enim. Amet
+                ut do amet voluptate pariatur eu laborum dolor nisi eiusmod
+                nostrud mollit. Nisi laboris sunt duis commodo.
+              </Text>
+            </View>
+          )}
         </View>
       </AndroidBackHandler>
     )
+  }
+  _onOrientationDidChange = orientation => {
+    if (Platform.OS === 'ios') return
+    if (orientation === 'LANDSCAPE-LEFT' || orientation === 'LANDSCAPE-RIGHT') {
+      this.presentFullscreenPlayer(true, false)
+    } else {
+      this.presentFullscreenPlayer(false, false)
+      // do something with portrait layout
+    }
   }
   onBackButtonPressAndroid = () => {
     if (this.state.fullscreen) {
@@ -106,16 +126,22 @@ class VideoShowcase extends React.PureComponent {
     }
     return false
   }
-  presentFullscreenPlayer(fullscreen) {
+  presentFullscreenPlayer(fullscreen, lock = true) {
     this.setState({ fullscreen })
     this.onFullScreen(fullscreen)
     StatusBar.setHidden(fullscreen)
-    if (fullscreen) {
-      Orientation.lockToLandscape()
-    } else Orientation.lockToPortrait()
+    if (lock) {
+      if (fullscreen) {
+        Orientation.lockToLandscape()
+      } else {
+        Orientation.lockToPortrait()
+        setTimeout(() => {
+          Orientation.unlockAllOrientations()
+        }, 500)
+      }
+    }
   }
   onFullScreen(status) {
-    // Set the params to pass in fullscreen status to navigationOptions
     this.props.navigation.setParams({
       fullscreen: !status
     })

@@ -40,7 +40,11 @@ class apiShowcase extends React.PureComponent {
     return (
       <SafeAreaView style={[Styles.Root]}>
         {this.state.events ? (
-          <FlatList data={this.state.events} renderItem={this.renderItem} />
+          <FlatList
+            data={this.state.events}
+            extraData={this.state.activeElement}
+            renderItem={this.renderItem}
+          />
         ) : (
           <View style={[Styles.LoadingContainer]}>
             <ActivityIndicator />

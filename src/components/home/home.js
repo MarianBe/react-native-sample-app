@@ -3,6 +3,7 @@ import React from 'react'
 import { SafeAreaView, Text, UIManager, View, StyleSheet } from 'react-native'
 import Video from 'react-native-video'
 import SplashScreen from 'react-native-splash-screen'
+import Orientation from 'react-native-orientation-locker'
 import Styles from './styles'
 
 class Home extends React.PureComponent {
@@ -16,6 +17,7 @@ class Home extends React.PureComponent {
 
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true)
+    Orientation.lockToPortrait()
   }
 
   componentWillUnmount() {}

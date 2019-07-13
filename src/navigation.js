@@ -1,23 +1,19 @@
 import React from 'react'
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-  createSwitchNavigator,
-  createAppContainer,
-  createDrawerNavigator
-} from 'react-navigation'
-import { Animated, Easing, Platform } from 'react-native'
-
-import { Variables } from './themes'
+import { Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
-/* Screens */
-
-// Main Application
-import HomeScreen from './components/home/home'
-import FlexScreen from './components/flex/flex'
+import {
+  createAppContainer,
+  createDrawerNavigator,
+  createStackNavigator,
+  createSwitchNavigator
+} from 'react-navigation'
 import Animation from './components/animationShowcase/animationShowcase'
 import API from './components/apiShowcase/apiShowcase'
 import Flatlist from './components/flatlistShowcase/flatlistShowcase'
+import FlexScreen from './components/flex/flex'
+/* Screens */
+// Main Application
+import HomeScreen from './components/home/home'
 import Maps from './components/mapsShowcase/mapsShowcase'
 import Video from './components/videoShowcase/videoShowcase'
 
@@ -45,24 +41,6 @@ const headerNavigationOptions = ({ navigation }) => {
     }
   }
 }
-/* 
-const Auth = createStackNavigator(
-  {
-    Intro: { screen: Intro },
-    Login: { screen: Login },
-    Register: { screen: Register },
-    ForgotPassword: { screen: ForgotPassword }
-  },
-  {
-    index: 0,
-    initialRouteName: 'Intro',
-    defaultNavigationOptions: {
-      gesturesEnabled: false
-    },
-    headerMode: 'none'
-    // transitionConfig: getSlideFromRightTransition
-  }
-) */
 const Home = createStackNavigator(
   {
     Home: {
@@ -153,11 +131,9 @@ const Drawer = createDrawerNavigator(
 
 export const Navigator = createSwitchNavigator(
   {
+    /* Hier kommen die Auth Stacks rein, wenn es welche gibt
     /* CheckToken: { screen: CheckToken },
-    Auth: { screen: Auth },
-    Stack: { screen: ParentStack },
-    NoInternet: { screen: NoInternet },
-    UpdateNow: { screen: UpdateNow } */
+    Auth: { screen: Auth }, */
     Drawer
   },
   {
