@@ -1,6 +1,6 @@
 # APK
 
-The current apk can be found [here]{android/app/build/outputs/apk/release/app-release.apk}
+The current apk can be found [here](android/app/build/outputs/apk/release/app-release.apk)
 
 # Getting started
 

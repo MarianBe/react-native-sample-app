@@ -22,21 +22,21 @@ PODS:
     - GoogleMaps
   - Google-Maps-iOS-Utils/QuadTree (2.1.0):
     - GoogleMaps
-  - GoogleMaps (2.5.0):
-    - GoogleMaps/Maps (= 2.5.0)
-  - GoogleMaps/Base (2.5.0)
-  - GoogleMaps/Maps (2.5.0):
+  - GoogleMaps (3.1.0):
+    - GoogleMaps/Maps (= 3.1.0)
+  - GoogleMaps/Base (3.1.0)
+  - GoogleMaps/Maps (3.1.0):
     - GoogleMaps/Base
-  - React (0.59.8):
-    - React/Core (= 0.59.8)
+  - React (0.59.10):
+    - React/Core (= 0.59.10)
   - react-native-fast-image (6.1.1):
     - React
     - SDWebImage (~> 5.0)
-  - react-native-google-maps (0.24.2):
+  - react-native-google-maps (0.25.0):
     - Google-Maps-iOS-Utils (= 2.1.0)
-    - GoogleMaps (= 2.5.0)
+    - GoogleMaps (= 3.1.0)
     - React
-  - react-native-maps (0.24.2):
+  - react-native-maps (0.25.0):
     - React
   - react-native-orientation-locker (1.1.6):
     - React
@@ -47,56 +47,56 @@ PODS:
     - react-native-video/Video (= 4.4.4)
   - react-native-video/Video (4.4.4):
     - React
-  - React/Core (0.59.8):
-    - yoga (= 0.59.8.React)
-  - React/CxxBridge (0.59.8):
+  - React/Core (0.59.10):
+    - yoga (= 0.59.10.React)
+  - React/CxxBridge (0.59.10):
     - Folly (= 2018.10.22.00)
     - React/Core
     - React/cxxreact
     - React/jsiexecutor
-  - React/cxxreact (0.59.8):
+  - React/cxxreact (0.59.10):
     - boost-for-react-native (= 1.63.0)
     - DoubleConversion
     - Folly (= 2018.10.22.00)
     - glog
     - React/jsinspector
-  - React/DevSupport (0.59.8):
+  - React/DevSupport (0.59.10):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.59.8)
-  - React/jsi (0.59.8):
+  - React/fishhook (0.59.10)
+  - React/jsi (0.59.10):
     - DoubleConversion
     - Folly (= 2018.10.22.00)
     - glog
-  - React/jsiexecutor (0.59.8):
+  - React/jsiexecutor (0.59.10):
     - DoubleConversion
     - Folly (= 2018.10.22.00)
     - glog
     - React/cxxreact
     - React/jsi
-  - React/jsinspector (0.59.8)
-  - React/RCTActionSheet (0.59.8):
+  - React/jsinspector (0.59.10)
+  - React/RCTActionSheet (0.59.10):
     - React/Core
-  - React/RCTAnimation (0.59.8):
+  - React/RCTAnimation (0.59.10):
     - React/Core
-  - React/RCTBlob (0.59.8):
+  - React/RCTBlob (0.59.10):
     - React/Core
-  - React/RCTGeolocation (0.59.8):
+  - React/RCTGeolocation (0.59.10):
     - React/Core
-  - React/RCTImage (0.59.8):
+  - React/RCTImage (0.59.10):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.59.8):
+  - React/RCTLinkingIOS (0.59.10):
     - React/Core
-  - React/RCTNetwork (0.59.8):
+  - React/RCTNetwork (0.59.10):
     - React/Core
-  - React/RCTSettings (0.59.8):
+  - React/RCTSettings (0.59.10):
     - React/Core
-  - React/RCTText (0.59.8):
+  - React/RCTText (0.59.10):
     - React/Core
-  - React/RCTVibration (0.59.8):
+  - React/RCTVibration (0.59.10):
     - React/Core
-  - React/RCTWebSocket (0.59.8):
+  - React/RCTWebSocket (0.59.10):
     - React/Core
     - React/fishhook
     - React/RCTBlob
@@ -111,7 +111,7 @@ PODS:
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
-  - yoga (0.59.8.React)
+  - yoga (0.59.10.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -189,11 +189,11 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
-  GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
+  GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
+  React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
   react-native-fast-image: fdfc612dba58fd73136cf5efdaeb8cfcad7f63b2
-  react-native-google-maps: 568cb03d0eae7fef93626f65d05be55642404ed4
-  react-native-maps: 0316ed017dbb64b33b227751fa810e2454fcfa39
+  react-native-google-maps: 88d750ad441b19c24885f20d43a55ecac25939b5
+  react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
   react-native-orientation-locker: 23918c400376a7043e752c639c122fcf6bce8f1c
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: 8c49eca5a6087de968a05b340933b10e3b58169a
@@ -202,7 +202,7 @@ SPEC CHECKSUMS:
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
+  yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
 PODFILE CHECKSUM: 61effa7b735afaef65aa3d94f4eb9f67ee623315
 
