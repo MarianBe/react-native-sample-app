@@ -18,7 +18,7 @@ export default {
   brandGray: 'rgb(204, 204, 204)',
   brandGrayLight: 'rgb(242, 242, 242)',
   brandWarning: '#EDD88E',
-  brandError: '#D47477',
-  brandSuccess: '#9AEDDF',
+  brandError: 'red',
+  brandSuccess: 'green',
   brandInfo: '#74B0D4'
 }

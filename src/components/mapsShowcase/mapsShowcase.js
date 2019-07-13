@@ -26,7 +26,7 @@ const marker = [
     description: 'Cafeteria Burren',
     coordinate: { latitude: 48.840933, longitude: 10.067914 },
     pinColor: 'green',
-    onCalloutPress: () => Alert.alert('Innovationszentrum Aalen pressed')
+    onCalloutPress: () => Alert.alert('Cafeteria Burren pressed')
   }
 ]
 class MapsShowcase extends React.PureComponent {

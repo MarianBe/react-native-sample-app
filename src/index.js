@@ -8,6 +8,7 @@ import { Variables } from 'themes'
 import I18n from './locales/I18n' // eslint-disable-line
 
 global.apiAxios = ApiAxios.apiAxios
+console.disableYellowBox = true
 const ColorTheme = {
   success: Variables.brandSuccess,
   info: Variables.brandInfo,

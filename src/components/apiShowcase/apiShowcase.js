@@ -6,10 +6,14 @@ import {
   SafeAreaView,
   Text,
   UIManager,
-  View
+  View,
+  FlatList,
+  TouchableOpacity
 } from 'react-native'
 import FastImage from 'react-native-fast-image'
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler'
+import Axios from 'axios'
+import { showMessage } from 'react-native-flash-message'
+
 import Styles from './styles'
 let dataArray = []
 for (let i = 0; i < 100; i++) {
@@ -19,7 +23,8 @@ class apiShowcase extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      activeElement: null
+      activeElement: null,
+      events: null
     }
   }
 
@@ -45,15 +50,26 @@ class apiShowcase extends React.PureComponent {
       </SafeAreaView>
     )
   }
-  async fetchCoins(page = 0) {
-    fetch('https://api.coingecko.com/api/v3/status_updates')
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log(responseJson)
-        this.setState({ events: responseJson.status_updates })
+  fetchCoins() {
+    console.time('api')
+    Axios.get('https://api.coingecko.com/api/v3/status_updates')
+      .then(response => {
+        this.setState({ events: response.data.status_updates })
+        console.timeEnd('api')
+        console.log(response)
+        showMessage({
+          message: 'Daten erfolgreich geholt',
+          type: 'success',
+          icon: 'auto'
+        })
       })
       .catch(error => {
-        console.error(error)
+        console.log(error)
+        showMessage({
+          message: 'Fehler beim Laden',
+          type: 'danger',
+          icon: 'auto'
+        })
       })
   }
   renderItem = ({ item, index }) => (

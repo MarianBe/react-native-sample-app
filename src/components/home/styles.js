@@ -7,6 +7,8 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   Title: {
-    margin: 20
+    margin: 20,
+    color: 'white',
+    fontWeight: 'bold'
   }
 })
