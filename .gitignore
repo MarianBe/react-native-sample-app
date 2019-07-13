@@ -25,6 +25,7 @@ project.xcworkspace
 # Android/IntelliJ
 #
 build/
+!android/app/build/outputs/apk/release/app-release.apk
 .idea
 .gradle
 local.properties
@@ -48,15 +49,5 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
-/fastlane/android-api-key.json
-/fastlane/report.xml
-/fastlane/README.md
-AppStore_com.meetyourmaster.mobileprovision
-3MG984G895.cer
-MeetYourMaster.app.dSYM.zip
-Gemfile.lock
 # Bundle artifact
 *.jsbundle
