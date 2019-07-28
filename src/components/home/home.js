@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { SafeAreaView, Text, UIManager, View, StyleSheet } from 'react-native'
-import Video from 'react-native-video'
-import SplashScreen from 'react-native-splash-screen'
+import { SafeAreaView, StyleSheet, Text, UIManager, View } from 'react-native'
 import Orientation from 'react-native-orientation-locker'
+import SplashScreen from 'react-native-splash-screen'
+import Video from 'react-native-video'
 import Styles from './styles'
 
 class Home extends React.PureComponent {
@@ -32,6 +32,7 @@ class Home extends React.PureComponent {
           resizeMode="cover"
           style={[StyleSheet.absoluteFill]}
           repeat
+          paused={false}
         />
 
         <SafeAreaView style={[Styles.Root]}>

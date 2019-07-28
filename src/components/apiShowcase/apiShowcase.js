@@ -1,20 +1,11 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import {
-  ActivityIndicator,
-  LayoutAnimation,
-  SafeAreaView,
-  Text,
-  UIManager,
-  View,
-  FlatList,
-  TouchableOpacity
-} from 'react-native'
-import FastImage from 'react-native-fast-image'
-import Axios from 'axios'
-import { showMessage } from 'react-native-flash-message'
+import Axios from 'axios';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { ActivityIndicator, FlatList, LayoutAnimation, SafeAreaView, Text, TouchableOpacity, UIManager, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { showMessage } from 'react-native-flash-message';
+import Styles from './styles';
 
-import Styles from './styles'
 let dataArray = []
 for (let i = 0; i < 100; i++) {
   dataArray.push(i)
@@ -55,11 +46,10 @@ class apiShowcase extends React.PureComponent {
     )
   }
   fetchCoins() {
-    console.time('api')
+    
     Axios.get('https://api.coingecko.com/api/v3/status_updates')
       .then(response => {
         this.setState({ events: response.data.status_updates })
-        console.timeEnd('api')
         console.log(response)
         showMessage({
           message: 'Daten erfolgreich geholt',
